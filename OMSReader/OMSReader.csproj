@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{1E05373C-E9A2-44D1-9A1D-11FE8F874663}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>OMSReader</RootNamespace>
+    <AssemblyName>OMSReader</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ApplicationIcon>..\..\..\..\Downloads\OMS.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Pc.Policy.Smartcard.Crypto">
+      <HintPath>..\Libs\Pc.Policy.Smartcard.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Pc.Policy.Smartcard.Data">
+      <HintPath>..\Libs\Pc.Policy.Smartcard.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Pc.Policy.Smartcard.Shared">
+      <HintPath>..\Libs\Pc.Policy.Smartcard.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Pc.Shared.Security">
+      <HintPath>..\Libs\Pc.Shared.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Pc.Shared.Utils">
+      <HintPath>..\Libs\Pc.Shared.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="SmartCard.PCSC">
+      <HintPath>..\Libs\SmartCard.PCSC.dll</HintPath>
+    </Reference>
+    <Reference Include="SmartCard.PCSC.Native">
+      <HintPath>..\Libs\SmartCard.PCSC.Native.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationManagement\About.cs" />
+    <Compile Include="ApplicationManagement\AssemblyEx.cs" />
+    <Compile Include="ApplicationManagement\ExceptionHandler.cs" />
+    <Compile Include="ApplicationManagement\Instance.cs" />
+    <Compile Include="ApplicationManagement\MemoryManagement.cs" />
+    <Compile Include="ApplicationManagement\MiniDump.cs" />
+    <Compile Include="ApplicationManagement\Profiling.cs" />
+    <Compile Include="ApplicationManagement\SystemInformationEx.cs" />
+    <Compile Include="ApplicationManagement\VistaSecurity.cs" />
+    <Compile Include="ApplicationManagement\WINAPI\Dbghelp.cs" />
+    <Compile Include="ApplicationManagement\WINAPI\Kernel32.cs" />
+    <Compile Include="CreateDataFile.cs" />
+    <Compile Include="MainForm.cs" />
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ApplicationManagement" />
+    <Folder Include="ApplicationManagement\WINAPI" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>
